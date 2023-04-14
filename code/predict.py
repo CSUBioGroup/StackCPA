@@ -24,22 +24,8 @@ def output_file(path):
 
 import argparse
 parser = argparse.ArgumentParser(
-    description='Prepare molecular data for the network',
+    description='prediction',
     formatter_class=argparse.ArgumentDefaultsHelpFormatter,
-    epilog='''This script reads the structures of ligands and pocket(s),
-    prepares them for the neural network and saves in a HDF file.
-    It also saves affinity values as attributes, if they are provided.
-    You can either specify a separate pocket for each ligand or a single
-    pocket that will be used for all ligands. We assume that your structures
-    are fully prepared.\n\n
-
-    Note that this scripts produces standard data representation for our network
-    and saves all required data to predict affinity for each molecular complex.
-    If some part of your data can be shared between multiple complexes
-    (e.g. you use a single structure for the pocket), you can store the data
-    more efficiently. To prepare the data manually use functions defined in
-    tfbio.data module.
-    '''
 )
 
 parser.add_argument('--data', '-d', required=True, type=input_file, nargs='+',
